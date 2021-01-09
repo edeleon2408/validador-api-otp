@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+    admin-otp:
+        image: admin-otp
+        ports:
+            - 80:80
+        restart: always
+#        env_file: docker-compose.env        
+        volumes:
+            - /opt/admin/otp/assets/images/:/usr/share/nginx/html/admin/otp/assets/images/
+
+#    otp-api:
+#        depends_on:
+#            - admin-otp
+#        image: otp-api
+#        restart: always
+#        env_file: docker-compose.env        
+#        volumes:
+#            - /opt/admin/otp/assets/images/:/tmp/admin/otp/assets/images/
+#
+#***************************************************************************
+#****************Comando para construir el aplicativo**************************************
+#npm install
+#ng build
+#docker build -f docker/Dockerfile -t admin-otp .
+#docker-compose up -d
