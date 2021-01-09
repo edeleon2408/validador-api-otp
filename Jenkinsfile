@@ -17,7 +17,7 @@ pipeline {
                       call npm install 
 		      call npm run ng -- build --prod
 		      call dir
-                    """
+                """
 	   }        	
     }
     stage('Unit-Test'){     
@@ -43,14 +43,18 @@ pipeline {
 		      call docker build -f docker/Dockerfile -t admin-otp .
 		      call docker tag admin-otp docker-registry-default.apps.claro.co/dev-motor-autenticacion/admin-otp:1.0
 		      call docker images
-                    """				
+                """				
 	 }        	
     }
     stage('Deploy-Artifactory'){     
     	 steps{
             echo 'Realizando despliegue del binario o imagen al servidor de Artefactos'	
-            
-	   }        	
+	    /*bat """	
+	    	      call oc login https://consoleapi.claro.co:443 --token=k-2caPuuiHbsEL0kb5uchspcwsuw8lngkNXJxV_PPsx4
+		      call docker login -u ECM09447F -p XILKm8Ckdw5CiD4xUc1KaZtaaKH8fFxthWwwKeXVesM docker-registry-default.apps.claro.co
+            	      call docker push docker-registry-default.apps.claro.co/dev-motor-autenticacion/admin-otp
+		"""*/
+	 }        	
     }//fin stage
     
   }//fin stages
