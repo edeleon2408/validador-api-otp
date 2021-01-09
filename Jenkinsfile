@@ -15,7 +15,7 @@ pipeline {
                       call cd admin-otp
                       call dir
                       call npm install 
-		      call ng build --prod
+		      call npm run build
 		      call dir
                     """
 	   }        	
