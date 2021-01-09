@@ -23,10 +23,10 @@ pipeline {
     stage('Unit-Test'){     
     	 steps{
             echo 'Realizando pruebas unitarias del proyecto'
-	    bat """
+	   /* bat """
                       call cd admin-otp
 		      call npm run ng -- test
-                    """	
+                    """	*/
 	 }        	
     }
     stage('SCA-SonarQ'){     
