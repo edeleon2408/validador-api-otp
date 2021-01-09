@@ -24,6 +24,12 @@ pipeline {
 			
 	   }        	
     }
+    stage('SCA-SonarQ'){     
+    	 steps{
+            echo 'Realizando escaneo del proyecto'
+			
+	   }        	
+    }
     stage('Build-Project'){     
     	 steps{
             echo 'Construyendo Binario o Imagen del Proyecto'
