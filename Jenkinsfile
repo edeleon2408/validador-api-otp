@@ -2,12 +2,12 @@
 pipeline {
  agent any
  stages {
-    stage('Checkout-Project'){     
+    /*stage('Checkout-Project'){     
     	 steps{
             echo 'Revisando repositorio del Proyecto'
 			git branch: 'develop', poll: true, url: 'https://github.com/edeleon2408/validador-api-otp.git'
          }        	
-    }
+    }*/
     stage('Clean-Install-Packages'){     
     	 steps{
             echo 'Limpiando e Instalando paquetes del Proyecto'
