@@ -15,7 +15,7 @@ pipeline {
                       call cd admin-otp
                       call dir
                       call npm install 
-		      call npm run ng -- build 
+		      call npm run ng -- build --prod
 		      call dir
                     """
 	   }        	
@@ -23,8 +23,11 @@ pipeline {
     stage('Unit-Test'){     
     	 steps{
             echo 'Realizando pruebas unitarias del proyecto'
-			
-	   }        	
+	    bat """
+                      call cd admin-otp
+		      call npm run ng -- test
+                    """	
+	 }        	
     }
     stage('SCA-SonarQ'){     
     	 steps{
@@ -35,8 +38,12 @@ pipeline {
     stage('Build-Project'){     
     	 steps{
             echo 'Construyendo Binario o Imagen del Proyecto'
-					
-	   }        	
+	    bat """
+                      call cd admin-otp
+		      call docker build -f docker/Dockerfile -t admin-otp .t
+		      call docker images
+                    """				
+	 }        	
     }
     stage('Deploy-Artifactory'){     
     	 steps{
