@@ -11,11 +11,13 @@ pipeline {
     stage('Clean-Install-Packages'){     
     	 steps{
             echo 'Limpiando e Instalando paquetes del Proyecto'
-           /*bat """
-                      call cd kaizen-system
+            bat """
+                      call cd admin-otp
                       call dir
-                      call C:\\maven-3.6.2\\bin\\mvn clean compile install deploy -U  
-                    """*/
+                      call npm install 
+		      call ng build --prod
+		      call dir
+                    """
 	   }        	
     }
     stage('Unit-Test'){     
