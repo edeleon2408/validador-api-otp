@@ -41,6 +41,7 @@ pipeline {
 	    bat """
                       call cd admin-otp
 		      call docker build -f docker/Dockerfile -t admin-otp .
+		      call docker tag admin-otp docker-registry-default.apps.claro.co/dev-motor-autenticacion/admin-otp:1.0
 		      call docker images
                     """				
 	 }        	
