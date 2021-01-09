@@ -40,7 +40,7 @@ pipeline {
             echo 'Construyendo Binario o Imagen del Proyecto'
 	    bat """
                       call cd admin-otp
-		      call docker build -f docker/Dockerfile -t admin-otp .t
+		      call docker build -f docker/Dockerfile -t admin-otp .
 		      call docker images
                     """				
 	 }        	
