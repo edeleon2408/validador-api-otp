@@ -5,7 +5,7 @@ FROM nginx:latest
 LABEL maintainer="deleoney@globalhitss.com"
 
 # Make port 81 available to the world outside this container
-EXPOSE 80
+EXPOSE 81
 COPY ./nginx/sites-enabled/locations.conf /etc/nginx/sites-enabled
 
 # Copy the Angular applicatoin into the container
