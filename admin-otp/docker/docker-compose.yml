@@ -4,7 +4,7 @@ services:
     admin-otp:
         image: admin-otp
         ports:
-            - 80:80
+            - 81:80
         restart: always
 #        env_file: docker-compose.env        
         volumes:
